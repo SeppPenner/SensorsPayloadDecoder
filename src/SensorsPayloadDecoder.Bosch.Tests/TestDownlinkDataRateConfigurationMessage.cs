@@ -1,3 +1,13 @@
+// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="TestDownlinkDataRateConfigurationMessage.cs" company="Hämmer Electronics">
+//   Copyright (c) All rights reserved.
+// </copyright>
+// <summary>
+//   This class provides some basic tests for the <see cref="BoschParkingSensorDecoder" />'s
+//   DownlinkDataRateConfigurationMessage.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
 namespace SensorsPayloadDecoder.Bosch.Tests
 {
     using System;
@@ -9,6 +19,7 @@ namespace SensorsPayloadDecoder.Bosch.Tests
     ///     DownlinkDataRateConfigurationMessage.
     /// </summary>
     [TestClass]
+    // ReSharper disable once InconsistentNaming
     public class TestDownlinkDataRateConfigurationMessage
     {
         /// <summary>
@@ -20,7 +31,7 @@ namespace SensorsPayloadDecoder.Bosch.Tests
         ///     Tests the decoder with a DR0 (SF12) downlink data rate configuration message.
         /// </summary>
         [TestMethod]
-        public void TestDatarateConfigurationMessageDr0()
+        public void TestDataRateConfigurationMessageDr0()
         {
             var data = new byte[] { 0x00 };
             var result = Decoder.DecodePayload(data, MessageType.DownlinkDataRateConfigurationMessage);
@@ -32,7 +43,7 @@ namespace SensorsPayloadDecoder.Bosch.Tests
         ///     Tests the decoder with a DR1 (SF11) downlink data rate configuration message.
         /// </summary>
         [TestMethod]
-        public void TestDatarateConfigurationMessageDr1()
+        public void TestDataRateConfigurationMessageDr1()
         {
             var data = new byte[] { 0x01 };
             var result = Decoder.DecodePayload(data, MessageType.DownlinkDataRateConfigurationMessage);
@@ -44,7 +55,7 @@ namespace SensorsPayloadDecoder.Bosch.Tests
         ///     Tests the decoder with a DR2 (SF10) downlink data rate configuration message.
         /// </summary>
         [TestMethod]
-        public void TestDatarateConfigurationMessageDr2()
+        public void TestDataRateConfigurationMessageDr2()
         {
             var data = new byte[] { 0x02 };
             var result = Decoder.DecodePayload(data, MessageType.DownlinkDataRateConfigurationMessage);
@@ -56,7 +67,7 @@ namespace SensorsPayloadDecoder.Bosch.Tests
         ///     Tests the decoder with a DR3 (SF9) downlink data rate configuration message.
         /// </summary>
         [TestMethod]
-        public void TestDatarateConfigurationMessageDr3()
+        public void TestDataRateConfigurationMessageDr3()
         {
             var data = new byte[] { 0x03 };
             var result = Decoder.DecodePayload(data, MessageType.DownlinkDataRateConfigurationMessage);
@@ -68,7 +79,7 @@ namespace SensorsPayloadDecoder.Bosch.Tests
         ///     Tests the decoder with a DR4 (SF8) downlink data rate configuration message.
         /// </summary>
         [TestMethod]
-        public void TestDatarateConfigurationMessageDr4()
+        public void TestDataRateConfigurationMessageDr4()
         {
             var data = new byte[] { 0x04 };
             var result = Decoder.DecodePayload(data, MessageType.DownlinkDataRateConfigurationMessage);
@@ -80,7 +91,7 @@ namespace SensorsPayloadDecoder.Bosch.Tests
         ///     Tests the decoder with a DR5 (SF7) downlink data rate configuration message.
         /// </summary>
         [TestMethod]
-        public void TestDatarateConfigurationMessageDr5()
+        public void TestDataRateConfigurationMessageDr5()
         {
             var data = new byte[] { 0x05 };
             var result = Decoder.DecodePayload(data, MessageType.DownlinkDataRateConfigurationMessage);
@@ -92,7 +103,7 @@ namespace SensorsPayloadDecoder.Bosch.Tests
         ///     Tests the decoder with a failing (too much bytes) downlink data rate configuration message.
         /// </summary>
         [TestMethod]
-        public void TestDatarateConfigurationMessageFailingTooMuchBytes()
+        public void TestDataRateConfigurationMessageFailingTooMuchBytes()
         {
             var data = new byte[] { 0x01, 0x01 };
             try
@@ -111,7 +122,7 @@ namespace SensorsPayloadDecoder.Bosch.Tests
         ///     Tests the decoder with an invalid downlink data rate configuration message.
         /// </summary>
         [TestMethod]
-        public void TestDatarateConfigurationMessageInvalid()
+        public void TestDataRateConfigurationMessageInvalid()
         {
             var data = new byte[] { 0x07 };
             var result = Decoder.DecodePayload(data, MessageType.DownlinkDataRateConfigurationMessage);
@@ -122,7 +133,7 @@ namespace SensorsPayloadDecoder.Bosch.Tests
         ///     Tests the decoder with a failing (too less bytes) downlink data rate configuration message.
         /// </summary>
         [TestMethod]
-        public void TestDatarateConfigurationMessageMessageFailingTooLessBytes()
+        public void TestDataRateConfigurationMessageMessageFailingTooLessBytes()
         {
             var data = new byte[] { };
             try

@@ -1,4 +1,13 @@
-﻿namespace SensorsPayloadDecoder.Bosch
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="ResetCause.cs" company="Hämmer Electronics">
+//   Copyright (c) All rights reserved.
+// </copyright>
+// <summary>
+//   An enumeration for the reset cause flag.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace SensorsPayloadDecoder.Bosch
 {
     /// <summary>
     ///     An enumeration for the reset cause flag.

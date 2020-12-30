@@ -1,4 +1,13 @@
-﻿namespace SensorsPayloadDecoder.Bosch
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="ParkingSpaceStatus.cs" company="Hämmer Electronics">
+//   Copyright (c) All rights reserved.
+// </copyright>
+// <summary>
+//   An enumeration for the parking space status flag.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace SensorsPayloadDecoder.Bosch
 {
     /// <summary>
     ///     An enumeration for the parking space status flag.

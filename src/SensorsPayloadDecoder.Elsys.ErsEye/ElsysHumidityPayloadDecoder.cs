@@ -1,4 +1,13 @@
-﻿namespace SensorsPayloadDecoder.Elsys.ErsEye
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="ElsysHumidityPayloadDecoder.cs" company="Hämmer Electronics">
+//   Copyright (c) All rights reserved.
+// </copyright>
+// <summary>
+//   A payload decoder for the Elsys Ers Eye humidity sensor.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace SensorsPayloadDecoder.Elsys.ErsEye
 {
     using System;
     using System.Collections.Generic;
@@ -16,6 +25,7 @@
         /// <param name="payload">The payload to decode as <see cref="T:byte{}" />.</param>
         /// <returns>A <see cref="MessageResult" /> that contains all the information of the message depending on the message type.</returns>
         // ReSharper disable once UnusedMember.Global
+        // ReSharper disable once InconsistentNaming
         public MessageResult DecodePayload(byte[] payload)
         {
             if (payload == null || payload.Length == 0)
@@ -36,6 +46,7 @@
         /// </summary>
         /// <param name="bin">The binary value.</param>
         /// <returns>The corresponding signed <c>int</c> value.</returns>
+        // ReSharper disable once InconsistentNaming
         private static int Bin16ToDecimal(int bin)
         {
             var num = bin & 0xFFFF;
@@ -53,6 +64,7 @@
         /// </summary>
         /// <param name="bin">The binary value.</param>
         /// <returns>The corresponding signed <c>int</c> value.</returns>
+        // ReSharper disable once InconsistentNaming
         private static int Bin8ToDecimal(int bin)
         {
             var num = bin & 0xFF;
@@ -71,6 +83,7 @@
         /// <param name="data">The payload to decode as <see cref="T:byte{}" />.</param>
         /// <returns>A <see cref="MessageResult" /> that contains all the information of the message depending on the message type.</returns>
         [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
+        // ReSharper disable once InconsistentNaming
         private static MessageResult DecodeElsysPayload(IReadOnlyList<byte> data)
         {
             var result = new MessageResult();

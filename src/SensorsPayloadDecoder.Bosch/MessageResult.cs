@@ -1,4 +1,13 @@
-﻿namespace SensorsPayloadDecoder.Bosch
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="MessageResult.cs" company="Hämmer Electronics">
+//   Copyright (c) All rights reserved.
+// </copyright>
+// <summary>
+//   The result decoded from the decoder.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace SensorsPayloadDecoder.Bosch
 {
     /// <summary>
     ///     The result decoded from the decoder.

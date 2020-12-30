@@ -3,7 +3,7 @@ SensorsPayloadDecoder
 
 SensorsPayloadDecoder is a library to read the payload information from the [Bosch parking sensor](https://www.bosch-connectivity.com/de/produkte/parking-lot-sensor/) and
 the [Elsys ERS sensor](https://www.elsys.se/en/ers-eye/) binary data.
-The assembly was written and tested in .Net Core 2.2.
+The assembly was written and tested in .Net 5.0.
 
 [![Build status](https://ci.appveyor.com/api/projects/status/ym5nosohx5wok6pj?svg=true)](https://ci.appveyor.com/project/SeppPenner/sensorspayloaddecoder)
 [![GitHub issues](https://img.shields.io/github/issues/SeppPenner/SensorsPayloadDecoder.svg)](https://github.com/SeppPenner/SensorsPayloadDecoder/issues)
@@ -43,5 +43,4 @@ var result = elsysDecoder.DecodePayload(data);
 Change history
 --------------
 
-* **Version 1.0.1.0 (2019-10-27)** : Updated nuget packages, added GitVersionTask.
-* **Version 1.0.0.0 (2019-06-15)** : 1.0 release.
+See the [Changelog](https://github.com/SeppPenner/SensorsPayloadDecoder/blob/master/Changelog.md).

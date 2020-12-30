@@ -1,4 +1,13 @@
-﻿namespace SensorsPayloadDecoder.Bosch
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="DataRateConfiguration.cs" company="Hämmer Electronics">
+//   Copyright (c) All rights reserved.
+// </copyright>
+// <summary>
+//   An enumeration for the data rate configuration.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace SensorsPayloadDecoder.Bosch
 {
     /// <summary>
     ///     An enumeration for the data rate configuration.

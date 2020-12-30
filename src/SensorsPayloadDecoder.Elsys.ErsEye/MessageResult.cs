@@ -1,5 +1,16 @@
-﻿namespace SensorsPayloadDecoder.Elsys.ErsEye
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="MessageResult.cs" company="Hämmer Electronics">
+//   Copyright (c) All rights reserved.
+// </copyright>
+// <summary>
+//   The result decoded from the decoder.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace SensorsPayloadDecoder.Elsys.ErsEye
 {
+    using System.Diagnostics.CodeAnalysis;
+
     /// <summary>
     ///     The result decoded from the decoder.
     /// </summary>
@@ -13,6 +24,7 @@
         /// <summary>
         ///     Gets or sets the Acc motion value.
         /// </summary>
+        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
         public int? AccMotion { get; set; }
 
         /// <summary>

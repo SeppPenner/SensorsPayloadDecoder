@@ -1,4 +1,13 @@
-﻿namespace SensorsPayloadDecoder.Elsys.ErsEye
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Constants.cs" company="Hämmer Electronics">
+//   Copyright (c) All rights reserved.
+// </copyright>
+// <summary>
+//   This class contains constant types for the <see cref="ElsysHumidityPayloadDecoder" />.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace SensorsPayloadDecoder.Elsys.ErsEye
 {
     /// <summary>
     ///     This class contains constant types for the <see cref="ElsysHumidityPayloadDecoder" />.

@@ -1,4 +1,13 @@
-﻿namespace SensorsPayloadDecoder.Bosch
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="BoschParkingSensorDecoder.cs" company="Hämmer Electronics">
+//   Copyright (c) All rights reserved.
+// </copyright>
+// <summary>
+//   A payload decoder for the BOSCH parking lot sensor.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace SensorsPayloadDecoder.Bosch
 {
     using System;
     using System.Collections.Generic;
@@ -16,6 +25,7 @@
         /// <param name="payload">The payload to decode as <see cref="T:byte[]" />.</param>
         /// <param name="type">The <see cref="MessageType" /> to decode.</param>
         /// <returns>A <see cref="MessageResult" /> that contains all the information of the message depending on the message type.</returns>
+        // ReSharper disable once InconsistentNaming
         public MessageResult DecodePayload(byte[] payload, MessageType type)
         {
             if (payload == null || payload.Length == 0)
@@ -46,6 +56,7 @@
         /// </summary>
         /// <param name="payload">The payload to decode as <see cref="T:byte[]" />.</param>
         /// <returns>A <see cref="MessageResult" /> that contains all the information of the message.</returns>
+        // ReSharper disable once InconsistentNaming
         private static MessageResult DecodeDownlinkConfirmableConfiguration(IReadOnlyList<byte> payload)
         {
             if (payload.Count != 1)
@@ -67,6 +78,7 @@
         /// </summary>
         /// <param name="payload">The payload to decode as <see cref="T:byte[]" />.</param>
         /// <returns>A <see cref="MessageResult" /> that contains all the information of the message.</returns>
+        // ReSharper disable once InconsistentNaming
         private static MessageResult DecodeDownlinkDataRateConfiguration(IReadOnlyList<byte> payload)
         {
             if (payload.Count != 1)
@@ -82,6 +94,7 @@
         /// </summary>
         /// <param name="payload">The payload to decode as <see cref="T:byte[]" />.</param>
         /// <returns>A <see cref="MessageResult" /> that contains all the information of the message.</returns>
+        // ReSharper disable once InconsistentNaming
         private static MessageResult DecodeUplinkHeartbeatMessage(byte[] payload)
         {
             if (payload.Length != 1)
@@ -104,6 +117,7 @@
         /// </summary>
         /// <param name="payload">The payload to decode as <see cref="T:byte[]" />.</param>
         /// <returns>A <see cref="MessageResult" /> that contains all the information of the message.</returns>
+        // ReSharper disable once InconsistentNaming
         private static MessageResult DecodeUplinkParkingStatusMessage(byte[] payload)
         {
             if (payload.Length != 1)
@@ -126,6 +140,7 @@
         /// </summary>
         /// <param name="payload">The payload to decode as <see cref="T:byte[]" />.</param>
         /// <returns>A <see cref="MessageResult" /> that contains all the information of the message.</returns>
+        // ReSharper disable once InconsistentNaming
         private static MessageResult DecodeUplinkStartUpMessage(byte[] payload)
         {
             if (payload.Length != 17)
@@ -152,6 +167,7 @@
         /// </summary>
         /// <param name="byteValue">The <see cref="byte" /> value to parse.</param>
         /// <returns>The <see cref="DataRateConfiguration" /> from the given <see cref="byte" /> value or <c>null</c>.</returns>
+        // ReSharper disable once InconsistentNaming
         private static DataRateConfiguration? GetDataRateConfigurationFromByte(byte byteValue)
         {
             if (byteValue == 0x00)
@@ -192,6 +208,7 @@
         /// </summary>
         /// <param name="byteValue">The <see cref="byte" /> value to parse.</param>
         /// <returns>The <see cref="ResetCause" /> from the given <see cref="byte" /> value or <c>null</c>.</returns>
+        // ReSharper disable once InconsistentNaming
         private static ResetCause? GetResetCauseFromByte(byte byteValue)
         {
             if (byteValue == 0x01)

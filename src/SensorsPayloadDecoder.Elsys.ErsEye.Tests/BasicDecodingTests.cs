@@ -1,4 +1,14 @@
-﻿namespace SensorsPayloadDecoder.Elsys.ErsEye.Tests
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="BasicDecodingTests.cs" company="Hämmer Electronics">
+//   Copyright (c) All rights reserved.
+// </copyright>
+// <summary>
+//   This class provides some basic tests for the <see cref="ElsysHumidityPayloadDecoder" />'s
+//   DownlinkConfirmableConfigurationMessage.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace SensorsPayloadDecoder.Elsys.ErsEye.Tests
 {
     using System.Diagnostics.CodeAnalysis;
 

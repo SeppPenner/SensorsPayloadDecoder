@@ -1,4 +1,13 @@
-﻿namespace SensorsPayloadDecoder.Shared
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="ByteExtensions.cs" company="Hämmer Electronics">
+//   Copyright (c) All rights reserved.
+// </copyright>
+// <summary>
+//   This class contains extension methods for the <see cref="byte" /> data type.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace SensorsPayloadDecoder.Shared
 {
     using System;
 
@@ -17,6 +26,8 @@
         ///     <c>true</c> if [is bit set] [the specified position]; otherwise, <c>false</c>.
         /// </returns>
         /// <exception cref="ArgumentOutOfRangeException">pos - Index must be in the range of 0-7.</exception>
+        // ReSharper disable once StyleCop.SA1650
+        // ReSharper disable once InconsistentNaming
         public static bool IsBitSet(this byte b, int pos)
         {
             if (pos < 0 || pos > 7)
@@ -35,6 +46,8 @@
         /// <returns>The set <see cref="byte" />.</returns>
         /// <exception cref="ArgumentOutOfRangeException">pos - Index must be in the range of 0-7.</exception>
         // ReSharper disable once UnusedMember.Global
+        // ReSharper disable once StyleCop.SA1650
+        // ReSharper disable once InconsistentNaming
         public static byte SetBit(this byte b, int pos)
         {
             if (pos < 0 || pos > 7)
@@ -51,6 +64,8 @@
         /// <param name="b">The <see cref="byte" />.</param>
         /// <returns>The changed <see cref="byte" />.</returns>
         // ReSharper disable once UnusedMember.Global
+        // ReSharper disable once StyleCop.SA1650
+        // ReSharper disable once InconsistentNaming
         public static string ToBinaryString(this byte b)
         {
             return Convert.ToString(b, 2).PadLeft(8, '0');
@@ -63,6 +78,8 @@
         /// <param name="pos">The position.</param>
         /// <returns>The changed <see cref="byte" />.</returns>
         // ReSharper disable once UnusedMember.Global
+        // ReSharper disable once StyleCop.SA1650
+        // ReSharper disable once InconsistentNaming
         public static byte ToggleBit(this byte b, int pos)
         {
             if (pos < 0 || pos > 7)
@@ -81,6 +98,8 @@
         /// <returns>The changed <see cref="byte" />.</returns>
         /// <exception cref="ArgumentOutOfRangeException">pos - Index must be in the range of 0-7.</exception>
         // ReSharper disable once UnusedMember.Global
+        // ReSharper disable once StyleCop.SA1650
+        // ReSharper disable once InconsistentNaming
         public static byte UnsetBit(this byte b, int pos)
         {
             if (pos < 0 || pos > 7)

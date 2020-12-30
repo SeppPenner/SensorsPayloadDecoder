@@ -1,3 +1,12 @@
+// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="TestUplinkParkingStatusMessage.cs" company="Hämmer Electronics">
+//   Copyright (c) All rights reserved.
+// </copyright>
+// <summary>
+//   This class provides some basic tests for the <see cref="BoschParkingSensorDecoder" />'s UplinkParkingStatusMessage.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
 namespace SensorsPayloadDecoder.Bosch.Tests
 {
     using System;
@@ -8,6 +17,7 @@ namespace SensorsPayloadDecoder.Bosch.Tests
     ///     This class provides some basic tests for the <see cref="BoschParkingSensorDecoder" />'s UplinkParkingStatusMessage.
     /// </summary>
     [TestClass]
+    // ReSharper disable once InconsistentNaming
     public class TestParkingStatusMessage
     {
         /// <summary>
