@@ -13,9 +13,12 @@ The assembly was written and tested in .Net 5.0.
 [![Known Vulnerabilities](https://snyk.io/test/github/SeppPenner/SensorsPayloadDecoder/badge.svg)](https://snyk.io/test/github/SeppPenner/SensorsPayloadDecoder)
 
 ## Available for
-* NetCore 2.2
+* Net 5.0
 
-## Basic usage:
+## Net Framework latest and LTS versions
+* https://dotnet.microsoft.com/download/dotnet/5.0
+
+## Basic usage
 ```csharp
 var boschDecoder = new BoschParkingSensorDecoder();
 var data = new byte[] { 0x01 };
