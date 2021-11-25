@@ -3,7 +3,6 @@ SensorsPayloadDecoder
 
 SensorsPayloadDecoder is a library to read the payload information from the [Bosch parking sensor](https://www.bosch-connectivity.com/de/produkte/parking-lot-sensor/) and
 the [Elsys ERS sensor](https://www.elsys.se/en/ers-eye/) binary data.
-The assembly was written and tested in .Net 5.0.
 
 [![Build status](https://ci.appveyor.com/api/projects/status/ym5nosohx5wok6pj?svg=true)](https://ci.appveyor.com/project/SeppPenner/sensorspayloaddecoder)
 [![GitHub issues](https://img.shields.io/github/issues/SeppPenner/SensorsPayloadDecoder.svg)](https://github.com/SeppPenner/SensorsPayloadDecoder/issues)
