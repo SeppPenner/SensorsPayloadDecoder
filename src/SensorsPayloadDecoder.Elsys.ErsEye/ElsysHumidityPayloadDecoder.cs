@@ -11,12 +11,10 @@ namespace SensorsPayloadDecoder.Elsys.ErsEye
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
     ///     A payload decoder for the Elsys Ers Eye humidity sensor.
     /// </summary>
-    [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
     public class ElsysHumidityPayloadDecoder
     {
         /// <summary>
@@ -82,7 +80,6 @@ namespace SensorsPayloadDecoder.Elsys.ErsEye
         /// </summary>
         /// <param name="data">The payload to decode as <see cref="T:byte{}" />.</param>
         /// <returns>A <see cref="MessageResult" /> that contains all the information of the message depending on the message type.</returns>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
         // ReSharper disable once InconsistentNaming
         private static MessageResult DecodeElsysPayload(IReadOnlyList<byte> data)
         {

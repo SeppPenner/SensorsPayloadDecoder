@@ -10,8 +10,6 @@
 
 namespace SensorsPayloadDecoder.Elsys.ErsEye.Tests
 {
-    using System.Diagnostics.CodeAnalysis;
-
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     /// <summary>
@@ -24,7 +22,6 @@ namespace SensorsPayloadDecoder.Elsys.ErsEye.Tests
         /// <summary>
         ///     The Elsys ERS sensor payload decoder.
         /// </summary>
-        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
         public static readonly ElsysHumidityPayloadDecoder Decoder = new ElsysHumidityPayloadDecoder();
 
         /// <summary>
