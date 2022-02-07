@@ -25,8 +25,7 @@ namespace SensorsPayloadDecoder.Bosch
         /// <param name="payload">The payload to decode as <see cref="T:byte[]" />.</param>
         /// <param name="type">The <see cref="MessageType" /> to decode.</param>
         /// <returns>A <see cref="MessageResult" /> that contains all the information of the message depending on the message type.</returns>
-        // ReSharper disable once InconsistentNaming
-        public MessageResult DecodePayload(byte[] payload, MessageType type)
+        public static MessageResult? DecodePayload(byte[] payload, MessageType type)
         {
             if (payload == null || payload.Length == 0)
             {
@@ -38,17 +37,15 @@ namespace SensorsPayloadDecoder.Bosch
                 Array.Reverse(payload);
             }
 
-            switch (type)
+            return type switch
             {
-                case MessageType.UplinkParkingStatusMessage: return DecodeUplinkParkingStatusMessage(payload);
-                case MessageType.UplinkHeartbeatMessage: return DecodeUplinkHeartbeatMessage(payload);
-                case MessageType.UplinkStartUpMessage: return DecodeUplinkStartUpMessage(payload);
-                case MessageType.DownlinkConfirmableConfigurationMessage:
-                    return DecodeDownlinkConfirmableConfiguration(payload);
-                case MessageType.DownlinkDataRateConfigurationMessage:
-                    return DecodeDownlinkDataRateConfiguration(payload);
-                default: return null;
-            }
+                MessageType.UplinkParkingStatusMessage => DecodeUplinkParkingStatusMessage(payload),
+                MessageType.UplinkHeartbeatMessage => DecodeUplinkHeartbeatMessage(payload),
+                MessageType.UplinkStartUpMessage => DecodeUplinkStartUpMessage(payload),
+                MessageType.DownlinkConfirmableConfigurationMessage => DecodeDownlinkConfirmableConfiguration(payload),
+                MessageType.DownlinkDataRateConfigurationMessage => DecodeDownlinkDataRateConfiguration(payload),
+                _ => null,
+            };
         }
 
         /// <summary>
@@ -56,7 +53,6 @@ namespace SensorsPayloadDecoder.Bosch
         /// </summary>
         /// <param name="payload">The payload to decode as <see cref="T:byte[]" />.</param>
         /// <returns>A <see cref="MessageResult" /> that contains all the information of the message.</returns>
-        // ReSharper disable once InconsistentNaming
         private static MessageResult DecodeDownlinkConfirmableConfiguration(IReadOnlyList<byte> payload)
         {
             if (payload.Count != 1)
@@ -78,7 +74,6 @@ namespace SensorsPayloadDecoder.Bosch
         /// </summary>
         /// <param name="payload">The payload to decode as <see cref="T:byte[]" />.</param>
         /// <returns>A <see cref="MessageResult" /> that contains all the information of the message.</returns>
-        // ReSharper disable once InconsistentNaming
         private static MessageResult DecodeDownlinkDataRateConfiguration(IReadOnlyList<byte> payload)
         {
             if (payload.Count != 1)
@@ -94,7 +89,6 @@ namespace SensorsPayloadDecoder.Bosch
         /// </summary>
         /// <param name="payload">The payload to decode as <see cref="T:byte[]" />.</param>
         /// <returns>A <see cref="MessageResult" /> that contains all the information of the message.</returns>
-        // ReSharper disable once InconsistentNaming
         private static MessageResult DecodeUplinkHeartbeatMessage(byte[] payload)
         {
             if (payload.Length != 1)
@@ -117,7 +111,6 @@ namespace SensorsPayloadDecoder.Bosch
         /// </summary>
         /// <param name="payload">The payload to decode as <see cref="T:byte[]" />.</param>
         /// <returns>A <see cref="MessageResult" /> that contains all the information of the message.</returns>
-        // ReSharper disable once InconsistentNaming
         private static MessageResult DecodeUplinkParkingStatusMessage(byte[] payload)
         {
             if (payload.Length != 1)
@@ -140,7 +133,6 @@ namespace SensorsPayloadDecoder.Bosch
         /// </summary>
         /// <param name="payload">The payload to decode as <see cref="T:byte[]" />.</param>
         /// <returns>A <see cref="MessageResult" /> that contains all the information of the message.</returns>
-        // ReSharper disable once InconsistentNaming
         private static MessageResult DecodeUplinkStartUpMessage(byte[] payload)
         {
             if (payload.Length != 17)
@@ -167,7 +159,6 @@ namespace SensorsPayloadDecoder.Bosch
         /// </summary>
         /// <param name="byteValue">The <see cref="byte" /> value to parse.</param>
         /// <returns>The <see cref="DataRateConfiguration" /> from the given <see cref="byte" /> value or <c>null</c>.</returns>
-        // ReSharper disable once InconsistentNaming
         private static DataRateConfiguration? GetDataRateConfigurationFromByte(byte byteValue)
         {
             if (byteValue == 0x00)
@@ -208,7 +199,6 @@ namespace SensorsPayloadDecoder.Bosch
         /// </summary>
         /// <param name="byteValue">The <see cref="byte" /> value to parse.</param>
         /// <returns>The <see cref="ResetCause" /> from the given <see cref="byte" /> value or <c>null</c>.</returns>
-        // ReSharper disable once InconsistentNaming
         private static ResetCause? GetResetCauseFromByte(byte byteValue)
         {
             if (byteValue == 0x01)

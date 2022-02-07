@@ -27,7 +27,7 @@ namespace SensorsPayloadDecoder.Bosch
         /// <summary>
         ///     Gets or sets the firmware information.
         /// </summary>
-        public string FirmwareInformation { get; set; }
+        public string FirmwareInformation { get; set; } = string.Empty;
 
         /// <summary>
         ///     Gets or sets the parking space status.

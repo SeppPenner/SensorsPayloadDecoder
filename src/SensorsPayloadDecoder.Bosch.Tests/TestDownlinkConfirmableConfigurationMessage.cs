@@ -19,14 +19,8 @@ namespace SensorsPayloadDecoder.Bosch.Tests
     ///     DownlinkConfirmableConfigurationMessage.
     /// </summary>
     [TestClass]
-    // ReSharper disable once InconsistentNaming
     public class TestDownlinkConfirmableConfigurationMessage
     {
-        /// <summary>
-        ///     The Bosch sensor payload decoder.
-        /// </summary>
-        private static readonly BoschParkingSensorDecoder Decoder = new BoschParkingSensorDecoder();
-
         /// <summary>
         ///     Tests the decoder with a confirmable downlink confirmable configuration message.
         /// </summary>
@@ -34,7 +28,8 @@ namespace SensorsPayloadDecoder.Bosch.Tests
         public void TestConfirmableConfigurationMessageConfirmable()
         {
             var data = new byte[] { 0x00 };
-            var result = Decoder.DecodePayload(data, MessageType.DownlinkConfirmableConfigurationMessage);
+            var result = BoschParkingSensorDecoder.DecodePayload(data, MessageType.DownlinkConfirmableConfigurationMessage);
+            Assert.IsNotNull(result);
             Assert.IsNotNull(result.ConfirmableStatus);
             Assert.AreEqual(ConfirmableStatus.Confirmable, result.ConfirmableStatus);
         }
@@ -45,10 +40,11 @@ namespace SensorsPayloadDecoder.Bosch.Tests
         [TestMethod]
         public void TestConfirmableConfigurationMessageFailingTooLessBytes()
         {
-            var data = new byte[] { };
+            var data = Array.Empty<byte>();
+
             try
             {
-                var unused = Decoder.DecodePayload(data, MessageType.DownlinkConfirmableConfigurationMessage);
+                _ = BoschParkingSensorDecoder.DecodePayload(data, MessageType.DownlinkConfirmableConfigurationMessage);
             }
             catch (Exception ex)
             {
@@ -65,7 +61,7 @@ namespace SensorsPayloadDecoder.Bosch.Tests
             var data = new byte[] { 0x01, 0x01 };
             try
             {
-                var unused = Decoder.DecodePayload(data, MessageType.DownlinkConfirmableConfigurationMessage);
+                _ = BoschParkingSensorDecoder.DecodePayload(data, MessageType.DownlinkConfirmableConfigurationMessage);
             }
             catch (Exception ex)
             {
@@ -82,7 +78,8 @@ namespace SensorsPayloadDecoder.Bosch.Tests
         public void TestConfirmableConfigurationMessageNotConfirmable()
         {
             var data = new byte[] { 0x01 };
-            var result = Decoder.DecodePayload(data, MessageType.DownlinkConfirmableConfigurationMessage);
+            var result = BoschParkingSensorDecoder.DecodePayload(data, MessageType.DownlinkConfirmableConfigurationMessage);
+            Assert.IsNotNull(result);
             Assert.IsNotNull(result.ConfirmableStatus);
             Assert.AreEqual(ConfirmableStatus.NotConfirmable, result.ConfirmableStatus);
         }

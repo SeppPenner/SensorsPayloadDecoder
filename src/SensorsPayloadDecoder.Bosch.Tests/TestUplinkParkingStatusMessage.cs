@@ -17,24 +17,19 @@ namespace SensorsPayloadDecoder.Bosch.Tests
     ///     This class provides some basic tests for the <see cref="BoschParkingSensorDecoder" />'s UplinkParkingStatusMessage.
     /// </summary>
     [TestClass]
-    // ReSharper disable once InconsistentNaming
     public class TestParkingStatusMessage
     {
-        /// <summary>
-        ///     The Bosch sensor payload decoder.
-        /// </summary>
-        private static readonly BoschParkingSensorDecoder Decoder = new BoschParkingSensorDecoder();
-
         /// <summary>
         ///     Tests the decoder with a failing (too less bytes) uplink parking status message.
         /// </summary>
         [TestMethod]
         public void TestParkingStatusMessageFailingTooLessBytes()
         {
-            var data = new byte[] { };
+            var data = Array.Empty<byte>();
+
             try
             {
-                var unused = Decoder.DecodePayload(data, MessageType.UplinkParkingStatusMessage);
+                _ = BoschParkingSensorDecoder.DecodePayload(data, MessageType.UplinkParkingStatusMessage);
             }
             catch (Exception ex)
             {
@@ -49,9 +44,10 @@ namespace SensorsPayloadDecoder.Bosch.Tests
         public void TestParkingStatusMessageFailingTooMuchBytes()
         {
             var data = new byte[] { 0x01, 0x01 };
+
             try
             {
-                var unused = Decoder.DecodePayload(data, MessageType.UplinkParkingStatusMessage);
+                _ = BoschParkingSensorDecoder.DecodePayload(data, MessageType.UplinkParkingStatusMessage);
             }
             catch (Exception ex)
             {
@@ -66,7 +62,8 @@ namespace SensorsPayloadDecoder.Bosch.Tests
         public void TestParkingStatusMessageFree()
         {
             var data = new byte[] { 0x00 };
-            var result = Decoder.DecodePayload(data, MessageType.UplinkParkingStatusMessage);
+            var result = BoschParkingSensorDecoder.DecodePayload(data, MessageType.UplinkParkingStatusMessage);
+            Assert.IsNotNull(result);
             Assert.IsNotNull(result.ParkingSpaceStatus);
             Assert.AreEqual(ParkingSpaceStatus.FreeParkingSpace, result.ParkingSpaceStatus);
         }
@@ -78,7 +75,8 @@ namespace SensorsPayloadDecoder.Bosch.Tests
         public void TestParkingStatusMessageOccupied()
         {
             var data = new byte[] { 0x01 };
-            var result = Decoder.DecodePayload(data, MessageType.UplinkParkingStatusMessage);
+            var result = BoschParkingSensorDecoder.DecodePayload(data, MessageType.UplinkParkingStatusMessage);
+            Assert.IsNotNull(result);
             Assert.IsNotNull(result.ParkingSpaceStatus);
             Assert.AreEqual(ParkingSpaceStatus.OccupiedParkingSpace, result.ParkingSpaceStatus);
         }

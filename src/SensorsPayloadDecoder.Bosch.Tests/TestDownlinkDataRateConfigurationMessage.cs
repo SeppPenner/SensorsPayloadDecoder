@@ -19,14 +19,8 @@ namespace SensorsPayloadDecoder.Bosch.Tests
     ///     DownlinkDataRateConfigurationMessage.
     /// </summary>
     [TestClass]
-    // ReSharper disable once InconsistentNaming
     public class TestDownlinkDataRateConfigurationMessage
     {
-        /// <summary>
-        ///     The Bosch sensor payload decoder.
-        /// </summary>
-        private static readonly BoschParkingSensorDecoder Decoder = new BoschParkingSensorDecoder();
-
         /// <summary>
         ///     Tests the decoder with a DR0 (SF12) downlink data rate configuration message.
         /// </summary>
@@ -34,7 +28,8 @@ namespace SensorsPayloadDecoder.Bosch.Tests
         public void TestDataRateConfigurationMessageDr0()
         {
             var data = new byte[] { 0x00 };
-            var result = Decoder.DecodePayload(data, MessageType.DownlinkDataRateConfigurationMessage);
+            var result = BoschParkingSensorDecoder.DecodePayload(data, MessageType.DownlinkDataRateConfigurationMessage);
+            Assert.IsNotNull(result);
             Assert.IsNotNull(result.DataRateConfiguration);
             Assert.AreEqual(DataRateConfiguration.Dr0Sf12, result.DataRateConfiguration);
         }
@@ -46,7 +41,8 @@ namespace SensorsPayloadDecoder.Bosch.Tests
         public void TestDataRateConfigurationMessageDr1()
         {
             var data = new byte[] { 0x01 };
-            var result = Decoder.DecodePayload(data, MessageType.DownlinkDataRateConfigurationMessage);
+            var result = BoschParkingSensorDecoder.DecodePayload(data, MessageType.DownlinkDataRateConfigurationMessage);
+            Assert.IsNotNull(result);
             Assert.IsNotNull(result.DataRateConfiguration);
             Assert.AreEqual(DataRateConfiguration.Dr1Sf11, result.DataRateConfiguration);
         }
@@ -58,7 +54,8 @@ namespace SensorsPayloadDecoder.Bosch.Tests
         public void TestDataRateConfigurationMessageDr2()
         {
             var data = new byte[] { 0x02 };
-            var result = Decoder.DecodePayload(data, MessageType.DownlinkDataRateConfigurationMessage);
+            var result = BoschParkingSensorDecoder.DecodePayload(data, MessageType.DownlinkDataRateConfigurationMessage);
+            Assert.IsNotNull(result);
             Assert.IsNotNull(result.DataRateConfiguration);
             Assert.AreEqual(DataRateConfiguration.Dr2Sf10, result.DataRateConfiguration);
         }
@@ -70,7 +67,8 @@ namespace SensorsPayloadDecoder.Bosch.Tests
         public void TestDataRateConfigurationMessageDr3()
         {
             var data = new byte[] { 0x03 };
-            var result = Decoder.DecodePayload(data, MessageType.DownlinkDataRateConfigurationMessage);
+            var result = BoschParkingSensorDecoder.DecodePayload(data, MessageType.DownlinkDataRateConfigurationMessage);
+            Assert.IsNotNull(result);
             Assert.IsNotNull(result.DataRateConfiguration);
             Assert.AreEqual(DataRateConfiguration.Dr3Sf9, result.DataRateConfiguration);
         }
@@ -82,7 +80,8 @@ namespace SensorsPayloadDecoder.Bosch.Tests
         public void TestDataRateConfigurationMessageDr4()
         {
             var data = new byte[] { 0x04 };
-            var result = Decoder.DecodePayload(data, MessageType.DownlinkDataRateConfigurationMessage);
+            var result = BoschParkingSensorDecoder.DecodePayload(data, MessageType.DownlinkDataRateConfigurationMessage);
+            Assert.IsNotNull(result);
             Assert.IsNotNull(result.DataRateConfiguration);
             Assert.AreEqual(DataRateConfiguration.Dr4Sf8, result.DataRateConfiguration);
         }
@@ -94,7 +93,8 @@ namespace SensorsPayloadDecoder.Bosch.Tests
         public void TestDataRateConfigurationMessageDr5()
         {
             var data = new byte[] { 0x05 };
-            var result = Decoder.DecodePayload(data, MessageType.DownlinkDataRateConfigurationMessage);
+            var result = BoschParkingSensorDecoder.DecodePayload(data, MessageType.DownlinkDataRateConfigurationMessage);
+            Assert.IsNotNull(result);
             Assert.IsNotNull(result.DataRateConfiguration);
             Assert.AreEqual(DataRateConfiguration.Dr5Sf7, result.DataRateConfiguration);
         }
@@ -106,9 +106,10 @@ namespace SensorsPayloadDecoder.Bosch.Tests
         public void TestDataRateConfigurationMessageFailingTooMuchBytes()
         {
             var data = new byte[] { 0x01, 0x01 };
+
             try
             {
-                var unused = Decoder.DecodePayload(data, MessageType.DownlinkDataRateConfigurationMessage);
+                _ = BoschParkingSensorDecoder.DecodePayload(data, MessageType.DownlinkDataRateConfigurationMessage);
             }
             catch (Exception ex)
             {
@@ -125,7 +126,8 @@ namespace SensorsPayloadDecoder.Bosch.Tests
         public void TestDataRateConfigurationMessageInvalid()
         {
             var data = new byte[] { 0x07 };
-            var result = Decoder.DecodePayload(data, MessageType.DownlinkDataRateConfigurationMessage);
+            var result = BoschParkingSensorDecoder.DecodePayload(data, MessageType.DownlinkDataRateConfigurationMessage);
+            Assert.IsNotNull(result);
             Assert.IsNull(result.DataRateConfiguration);
         }
 
@@ -138,7 +140,7 @@ namespace SensorsPayloadDecoder.Bosch.Tests
             var data = new byte[] { };
             try
             {
-                var unused = Decoder.DecodePayload(data, MessageType.DownlinkDataRateConfigurationMessage);
+                _ = BoschParkingSensorDecoder.DecodePayload(data, MessageType.DownlinkDataRateConfigurationMessage);
             }
             catch (Exception ex)
             {

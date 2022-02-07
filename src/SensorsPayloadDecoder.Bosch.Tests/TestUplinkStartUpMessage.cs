@@ -17,24 +17,19 @@ namespace SensorsPayloadDecoder.Bosch.Tests
     ///     This class provides some basic tests for the <see cref="BoschParkingSensorDecoder" />'s UplinkStartUpMessage.
     /// </summary>
     [TestClass]
-    // ReSharper disable once InconsistentNaming
     public class TestUplinkStartUpMessage
     {
-        /// <summary>
-        ///     The Bosch sensor payload decoder.
-        /// </summary>
-        private static readonly BoschParkingSensorDecoder Decoder = new BoschParkingSensorDecoder();
-
         /// <summary>
         ///     Tests the decoder with a failing (too less bytes) uplink startup message.
         /// </summary>
         [TestMethod]
         public void TestParkingStatusMessageFailingTooLessBytes()
         {
-            var data = new byte[] { };
+            var data = Array.Empty<byte>();
+
             try
             {
-                var unused = Decoder.DecodePayload(data, MessageType.UplinkStartUpMessage);
+                _ = BoschParkingSensorDecoder.DecodePayload(data, MessageType.UplinkStartUpMessage);
             }
             catch (Exception ex)
             {
@@ -49,13 +44,14 @@ namespace SensorsPayloadDecoder.Bosch.Tests
         public void TestParkingStatusMessageFailingTooMuchBytes()
         {
             var data = new byte[]
-                       {
-                           0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                           0x00, 0x00, 0x00
-                       };
+            {
+                0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                0x00, 0x00, 0x00
+            };
+
             try
             {
-                var unused = Decoder.DecodePayload(data, MessageType.UplinkStartUpMessage);
+                _ = BoschParkingSensorDecoder.DecodePayload(data, MessageType.UplinkStartUpMessage);
             }
             catch (Exception ex)
             {
@@ -71,11 +67,13 @@ namespace SensorsPayloadDecoder.Bosch.Tests
         public void TestStartUpMessageFreeInvalidReset()
         {
             var data = new byte[]
-                       {
-                           0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x17, 0x00,
-                           0x05, 0x00
-                       };
-            var result = Decoder.DecodePayload(data, MessageType.UplinkStartUpMessage);
+            {
+                0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x17, 0x00,
+                0x05, 0x00
+            };
+
+            var result = BoschParkingSensorDecoder.DecodePayload(data, MessageType.UplinkStartUpMessage);
+            Assert.IsNotNull(result);
             Assert.IsNotNull(result.ParkingSpaceStatus);
             Assert.AreEqual(ParkingSpaceStatus.FreeParkingSpace, result.ParkingSpaceStatus);
             Assert.IsNull(result.ResetCause);
@@ -91,11 +89,13 @@ namespace SensorsPayloadDecoder.Bosch.Tests
         public void TestStartUpMessageFreeOtherReset()
         {
             var data = new byte[]
-                       {
-                           0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x17, 0x00,
-                           0x04, 0x00
-                       };
-            var result = Decoder.DecodePayload(data, MessageType.UplinkStartUpMessage);
+            {
+                0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x17, 0x00,
+                0x04, 0x00
+            };
+
+            var result = BoschParkingSensorDecoder.DecodePayload(data, MessageType.UplinkStartUpMessage);
+            Assert.IsNotNull(result);
             Assert.IsNotNull(result.ParkingSpaceStatus);
             Assert.AreEqual(ParkingSpaceStatus.FreeParkingSpace, result.ParkingSpaceStatus);
             Assert.IsNotNull(result.ResetCause);
@@ -112,11 +112,13 @@ namespace SensorsPayloadDecoder.Bosch.Tests
         public void TestStartUpMessageFreePowerOnReset()
         {
             var data = new byte[]
-                       {
-                           0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x17, 0x00,
-                           0x02, 0x00
-                       };
-            var result = Decoder.DecodePayload(data, MessageType.UplinkStartUpMessage);
+            {
+                0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x17, 0x00,
+                0x02, 0x00
+            };
+
+            var result = BoschParkingSensorDecoder.DecodePayload(data, MessageType.UplinkStartUpMessage);
+            Assert.IsNotNull(result);
             Assert.IsNotNull(result.ParkingSpaceStatus);
             Assert.AreEqual(ParkingSpaceStatus.FreeParkingSpace, result.ParkingSpaceStatus);
             Assert.IsNotNull(result.ResetCause);
@@ -133,11 +135,13 @@ namespace SensorsPayloadDecoder.Bosch.Tests
         public void TestStartUpMessageFreeSystemRequestReset()
         {
             var data = new byte[]
-                       {
-                           0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x17, 0x00,
-                           0x03, 0x00
-                       };
-            var result = Decoder.DecodePayload(data, MessageType.UplinkStartUpMessage);
+            {
+                0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x17, 0x00,
+                0x03, 0x00
+            };
+
+            var result = BoschParkingSensorDecoder.DecodePayload(data, MessageType.UplinkStartUpMessage);
+            Assert.IsNotNull(result);
             Assert.IsNotNull(result.ParkingSpaceStatus);
             Assert.AreEqual(ParkingSpaceStatus.FreeParkingSpace, result.ParkingSpaceStatus);
             Assert.IsNotNull(result.ResetCause);
@@ -154,11 +158,13 @@ namespace SensorsPayloadDecoder.Bosch.Tests
         public void TestStartUpMessageFreeWatchdogReset()
         {
             var data = new byte[]
-                       {
-                           0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x17, 0x00,
-                           0x01, 0x00
-                       };
-            var result = Decoder.DecodePayload(data, MessageType.UplinkStartUpMessage);
+            {
+                0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x17, 0x00,
+                0x01, 0x00
+            };
+
+            var result = BoschParkingSensorDecoder.DecodePayload(data, MessageType.UplinkStartUpMessage);
+            Assert.IsNotNull(result);
             Assert.IsNotNull(result.ParkingSpaceStatus);
             Assert.AreEqual(ParkingSpaceStatus.FreeParkingSpace, result.ParkingSpaceStatus);
             Assert.IsNotNull(result.ResetCause);
@@ -175,11 +181,13 @@ namespace SensorsPayloadDecoder.Bosch.Tests
         public void TestStartUpMessageOccupiedInvalidReset()
         {
             var data = new byte[]
-                       {
-                           0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x17, 0x00,
-                           0x05, 0x01
-                       };
-            var result = Decoder.DecodePayload(data, MessageType.UplinkStartUpMessage);
+            {
+                0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x17, 0x00,
+                0x05, 0x01
+            };
+
+            var result = BoschParkingSensorDecoder.DecodePayload(data, MessageType.UplinkStartUpMessage);
+            Assert.IsNotNull(result);
             Assert.IsNotNull(result.ParkingSpaceStatus);
             Assert.AreEqual(ParkingSpaceStatus.OccupiedParkingSpace, result.ParkingSpaceStatus);
             Assert.IsNull(result.ResetCause);
@@ -195,11 +203,13 @@ namespace SensorsPayloadDecoder.Bosch.Tests
         public void TestStartUpMessageOccupiedOtherReset()
         {
             var data = new byte[]
-                       {
-                           0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x17, 0x00,
-                           0x04, 0x01
-                       };
-            var result = Decoder.DecodePayload(data, MessageType.UplinkStartUpMessage);
+            {
+                0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x17, 0x00,
+                0x04, 0x01
+            };
+
+            var result = BoschParkingSensorDecoder.DecodePayload(data, MessageType.UplinkStartUpMessage);
+            Assert.IsNotNull(result);
             Assert.IsNotNull(result.ParkingSpaceStatus);
             Assert.AreEqual(ParkingSpaceStatus.OccupiedParkingSpace, result.ParkingSpaceStatus);
             Assert.IsNotNull(result.ResetCause);
@@ -216,11 +226,13 @@ namespace SensorsPayloadDecoder.Bosch.Tests
         public void TestStartUpMessageOccupiedPowerOnReset()
         {
             var data = new byte[]
-                       {
-                           0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x17, 0x00,
-                           0x02, 0x01
-                       };
-            var result = Decoder.DecodePayload(data, MessageType.UplinkStartUpMessage);
+            {
+                0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x17, 0x00,
+                0x02, 0x01
+            };
+
+            var result = BoschParkingSensorDecoder.DecodePayload(data, MessageType.UplinkStartUpMessage);
+            Assert.IsNotNull(result);
             Assert.IsNotNull(result.ParkingSpaceStatus);
             Assert.AreEqual(ParkingSpaceStatus.OccupiedParkingSpace, result.ParkingSpaceStatus);
             Assert.IsNotNull(result.ResetCause);
@@ -237,11 +249,13 @@ namespace SensorsPayloadDecoder.Bosch.Tests
         public void TestStartUpMessageOccupiedSystemRequestReset()
         {
             var data = new byte[]
-                       {
-                           0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x17, 0x00,
-                           0x03, 0x01
-                       };
-            var result = Decoder.DecodePayload(data, MessageType.UplinkStartUpMessage);
+            {
+                0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x17, 0x00,
+                0x03, 0x01
+            };
+
+            var result = BoschParkingSensorDecoder.DecodePayload(data, MessageType.UplinkStartUpMessage);
+            Assert.IsNotNull(result);
             Assert.IsNotNull(result.ParkingSpaceStatus);
             Assert.AreEqual(ParkingSpaceStatus.OccupiedParkingSpace, result.ParkingSpaceStatus);
             Assert.IsNotNull(result.ResetCause);
@@ -258,11 +272,13 @@ namespace SensorsPayloadDecoder.Bosch.Tests
         public void TestStartUpMessageOccupiedWatchdogReset()
         {
             var data = new byte[]
-                       {
-                           0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x17, 0x00,
-                           0x01, 0x01
-                       };
-            var result = Decoder.DecodePayload(data, MessageType.UplinkStartUpMessage);
+            {
+                0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x17, 0x00,
+                0x01, 0x01
+            };
+
+            var result = BoschParkingSensorDecoder.DecodePayload(data, MessageType.UplinkStartUpMessage);
+            Assert.IsNotNull(result);
             Assert.IsNotNull(result.ParkingSpaceStatus);
             Assert.AreEqual(ParkingSpaceStatus.OccupiedParkingSpace, result.ParkingSpaceStatus);
             Assert.IsNotNull(result.ResetCause);
