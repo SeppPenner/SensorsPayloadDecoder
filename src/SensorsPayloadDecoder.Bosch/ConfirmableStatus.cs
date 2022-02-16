@@ -1,4 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="ConfirmableStatus.cs" company="Hämmer Electronics">
 //   Copyright (c) All rights reserved.
 // </copyright>
@@ -7,21 +7,20 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace SensorsPayloadDecoder.Bosch
+namespace SensorsPayloadDecoder.Bosch;
+
+/// <summary>
+///     An enumeration for the confirmable status.
+/// </summary>
+public enum ConfirmableStatus
 {
     /// <summary>
-    ///     An enumeration for the confirmable status.
+    ///     The confirmable status.
     /// </summary>
-    public enum ConfirmableStatus
-    {
-        /// <summary>
-        ///     The confirmable status.
-        /// </summary>
-        Confirmable,
+    Confirmable,
 
-        /// <summary>
-        ///     The not confirmable status.
-        /// </summary>
-        NotConfirmable
-    }
+    /// <summary>
+    ///     The not confirmable status.
+    /// </summary>
+    NotConfirmable
 }

@@ -1,4 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="ParkingSpaceStatus.cs" company="Hämmer Electronics">
 //   Copyright (c) All rights reserved.
 // </copyright>
@@ -7,21 +7,20 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace SensorsPayloadDecoder.Bosch
+namespace SensorsPayloadDecoder.Bosch;
+
+/// <summary>
+///     An enumeration for the parking space status flag.
+/// </summary>
+public enum ParkingSpaceStatus
 {
     /// <summary>
-    ///     An enumeration for the parking space status flag.
+    ///     The free parking space status.
     /// </summary>
-    public enum ParkingSpaceStatus
-    {
-        /// <summary>
-        ///     The free parking space status.
-        /// </summary>
-        FreeParkingSpace,
+    FreeParkingSpace,
 
-        /// <summary>
-        ///     The occupied parking space status.
-        /// </summary>
-        OccupiedParkingSpace
-    }
+    /// <summary>
+    ///     The occupied parking space status.
+    /// </summary>
+    OccupiedParkingSpace
 }
