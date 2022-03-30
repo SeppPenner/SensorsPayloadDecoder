@@ -12,10 +12,10 @@ the [Elsys ERS sensor](https://www.elsys.se/en/ers-eye/) binary data.
 [![Known Vulnerabilities](https://snyk.io/test/github/SeppPenner/SensorsPayloadDecoder/badge.svg)](https://snyk.io/test/github/SeppPenner/SensorsPayloadDecoder)
 
 ## Available for
-* Net 5.0
+* Net 6.0
 
 ## Net Framework latest and LTS versions
-* https://dotnet.microsoft.com/download/dotnet/5.0
+* https://dotnet.microsoft.com/download/dotnet/6.0
 
 ## Basic usage
 ```csharp
