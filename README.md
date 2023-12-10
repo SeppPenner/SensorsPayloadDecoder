@@ -10,6 +10,9 @@ the [Elsys ERS sensor](https://www.elsys.se/en/ers-eye/) binary data.
 [![GitHub stars](https://img.shields.io/github/stars/SeppPenner/SensorsPayloadDecoder.svg)](https://github.com/SeppPenner/SensorsPayloadDecoder/stargazers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://raw.githubusercontent.com/SeppPenner/SensorsPayloadDecoder/master/License.txt)
 [![Known Vulnerabilities](https://snyk.io/test/github/SeppPenner/SensorsPayloadDecoder/badge.svg)](https://snyk.io/test/github/SeppPenner/SensorsPayloadDecoder)
+[![Blogger](https://img.shields.io/badge/Follow_me_on-blogger-orange)](https://franzhuber23.blogspot.de/)
+[![Patreon](https://img.shields.io/badge/Patreon-F96854?logo=patreon&logoColor=white)](https://patreon.com/SeppPennerOpenSourceDevelopment)
+[![PayPal](https://img.shields.io/badge/PayPal-00457C?logo=paypal&logoColor=white)](https://paypal.me/th070795)
 
 ## Available for
 * Net 7.0
